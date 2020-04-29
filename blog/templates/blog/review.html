@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <div class="card my-3 w3-aqua" style="width: 50rem">
+    <div class="card text-white bg-info mb-3 " style="width: 50rem">
         <h1 class="card-header">
           {% if user.is_authenticated %}
             All Review  
-             <a class="btn btn-secondary btn-sm mt-1 mb-1 float-right" href="{% url 'review-create' %}">Create Review</a> 
+             <a class="btn btn-warning btn-sm mt-1 mb-1 float-right" href="{% url 'review-create' %}">Create Review</a> 
           {% else %}  
             All Review
           {% endif %}

@@ -6,7 +6,7 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4 p-3 mb-2 bg-secondary text-white"><img src="{%static 'images/rest.png' %}" width="30"  height="30">&nbsp;Create Restaurant</legend>
+                <legend class="border-bottom mb-4 p-3 mb-2 bg-secondary text-white"><img src="{%static 'images/rest.png' %}" width="30"  height="30">&nbsp;Create Review</legend>
                 <img src="{%static 'images/announ.png' %}" width="30"  height="30"> &nbsp;<b>ชื่อร้านอาหาร</b></h5>
                 {{ form.title|as_crispy_field }}
                 <img src="{%static 'images/iconimage.png' %}" width="30"  height="30"> &nbsp;<b>รูปปกร้านอาหาร</b></h5>
