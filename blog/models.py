@@ -47,6 +47,7 @@ closeday_CHOICES= [
 ]
 
 
+
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -64,38 +65,40 @@ class Comment(models.Model):
 class Post(models.Model):
     RestuarantName = models.CharField(max_length=100)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    tag = TaggableManager()
     Banner = models.ImageField(default='default.jpg', upload_to='menu_pics')
-
     menu1 = models.ImageField(default='default.jpg', upload_to='menu_pics')
     menu2 = models.ImageField(default='default.jpg', upload_to='menu_pics')
     menu3 = models.ImageField(default='default.jpg', upload_to='menu_pics')
     menu4 = models.ImageField(default='default.jpg', upload_to='menu_pics')
-
     lowprice = models.IntegerField(null='True')
     highprice = models.IntegerField(null='True')
+
 
     time = models.TimeField(default="00:00")
 
     tel = models.CharField(max_length=10, default='')
-
     parking = models.CharField(max_length=6, choices=Parking_CHOICES, default='มี')
-
     address = models.CharField(max_length=50, default='')
-
     wifi = models.CharField(max_length=6, choices=Wifi_CHOICES, default='มี')
-
     foodpanda = models.CharField(max_length=6, choices=Panda_CHOICES, default='มี')
-
     grab = models.CharField(max_length=6, choices=Grab_CHOICES, default='มี')
 
     openday = models.CharField(max_length=10, choices=openday_CHOICES, default='จันทร์')
-    
     closeday = models.CharField(max_length=10, choices=closeday_CHOICES, default='อาทิตย์')
 
     content = models.TextField()
 
     googlemap = models.CharField(max_length=500, default='https://www.google.com/maps/embed?pb=!1m18......')
+    is_thaifood = models.BooleanField("อาหารไทย",default=False)
+    is_japanfood = models.BooleanField("อาหารญี่ปุ่น",default=False)
+    is_chinesefood = models.BooleanField("อาหารจีน",default=False)
+    is_northfood = models.BooleanField("อาหารเหนือ",default=False)
+    is_noodlefood = models.BooleanField("ก๋วยเตี๋ยว",default=False)
+    is_buffetfood = models.BooleanField("บุฟเฟ่ต์",default=False)
+    is_fastfood = models.BooleanField("ฟาสต์ฟู้ด",default=False)
+    is_somtumfood = models.BooleanField("ส้มตำ",default=False)
+    is_cafefood = models.BooleanField("กาแฟ&ของหวาน",default=False)
+    is_southfood = models.BooleanField("อาหารใต้",default=False)
 
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -132,7 +135,7 @@ class Reviewpost(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
+        return reverse('review-detail', kwargs={'pk': self.pk})
 
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)

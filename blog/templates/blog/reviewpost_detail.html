@@ -1,0 +1,97 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<article class="media content-section">
+    <!--img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}"-->
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+          <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+          {% if object.author == user %}
+            <div>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'reviewpost-update' object.id %}">Update</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'reviewpost-delete' object.id %}">Delete</a>
+            </div>
+            
+          {% endif %}
+        </div>
+
+        <h2 class="article-title">{{ object.title }}</a></h2>
+
+        <center><img src="{{ reviewpost.image.url }}"  class="w3-border w3-round" width="690" height="300"></center>
+        <br/>
+        <div class="article-metadata"></div>
+        <h5><img src="{%static 'images/menu.png' %}" width="30">&nbsp;<b>รายละเอียด</b></h5>
+        <p class="article-content">{{ object.content }}</p>
+
+        <center>
+            <img src="{{ reviewpost.pic1.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+            onclick="document.getElementById('modal01').style.display='block'">
+            <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img src="{{ reviewpost.pic1.url }}" style="width:100%" height="500">
+                </div>
+           </div>
+           <img src="{{ reviewpost.pic2.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+            onclick="document.getElementById('modal02').style.display='block'">
+            <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img src="{{ reviewpost.pic2.url }}" style="width:100%" height="500">
+                </div>
+           </div>
+            
+            
+           <img src="{{ reviewpost.pic3.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+           onclick="document.getElementById('modal03').style.display='block'">
+           <div id="modal03" class="w3-modal" onclick="this.style.display='none'">
+               <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+               <div class="w3-modal-content w3-animate-zoom">
+                 <img src="{{ reviewpost.pic3.url }}" style="width:100%" height="500">
+               </div>
+          </div>
+
+          <img src="{{ reviewpost.pic4.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+          onclick="document.getElementById('modal04').style.display='block'">
+          <div id="modal04" class="w3-modal" onclick="this.style.display='none'">
+              <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+              <div class="w3-modal-content w3-animate-zoom">
+                <img src="{{ reviewpost.pic4.url }}" style="width:100%" height="500">
+              </div>
+         </div>
+          </center>
+
+          <div class="article-metadata"></div>
+            <p><img src="{%static 'images/address.png' %}" width="35">&nbsp;<b>Address</b> : <br/>{{ post.address }}</p>
+            <h5 ><img src="{%static 'images/googlemap.png' %}" width="20">&nbsp;<b>Map</b></h5>
+            <div></div>
+              <iframe src="{{ object.googlemap }}" 
+              width="300" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>	
+
+</article>   
+      
+    <hr>
+    <a class="btn btn-info" href="{% url 'add_comment_to_reviewpost' pk=reviewpost.pk %}">Add Comment</a><br/><br/>
+    {% for comment in reviewpost.comments.all %}
+       {% if user.is_authenticated or comment.approved_comment %}
+       <div class="content-section">
+            <div class="date">
+                {{ comment.created_date }}
+                {% if comment.author == user %}
+                  <a class="btn btn-outline-danger" href="{% url 'reviewcomment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove">remove</span></a>
+                  <!-- <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a> -->
+                {% endif %}
+            </div>
+            <img class="rounded-circle" src="{{ comment.author.profile.image.url }}" width="50"  height="50">
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+        {% endif %}
+      {% empty %}
+
+        <p>No comments here yet :(</p>
+      {% endfor %}
+
+  
+{% endblock %}

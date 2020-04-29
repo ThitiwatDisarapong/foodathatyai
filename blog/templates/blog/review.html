@@ -2,180 +2,66 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <div class="card my-4 " style="width: 70rem">
+    <div class="card my-3 w3-aqua" style="width: 50rem">
         <h1 class="card-header">
           {% if user.is_authenticated %}
             All Review  
-             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'review-create' %}">Create Review</a> 
+             <a class="btn btn-secondary btn-sm mt-1 mb-1 float-right" href="{% url 'review-create' %}">Create Review</a> 
           {% else %}  
             All Review
           {% endif %}
         </h1>
-        <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food10.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-              <a href="{% url 'review' %}" target="_blank"><h5 class="card-title">รีวิวร้านติ่มซำ</h5></a>
-                <p class="card-text"> อาหารที่ร้านมีหลากหลายทั้งแบบทานง่าย เช่น บะหมี่เกี๊ยว ข้าวหมูกรอบ </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanakrit Suksopa</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food2.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ไก่ทอดข้าง ม</h5>
-                <p class="card-text">ร้านนี้เดินผ่านหลายครั้งแล้วแต่ไม่ได้แวะเพราะเห็นแค่ตู้ก๋วยเตี๋ยวกับน้ำแข็งไส  </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Thitiwat Disarapong</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food3.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ข้าวหมกไก่</h5>
-                <p class="card-text">ปกติไม่ค่อยสาขานี้นะ เพราะคนเยอะมากกกก แต่วันนี้คนน้อย อาจจะเพราะปิดปรับปรุงไปส่วนนึง คนก็เลยไปร้านอื่น
-                    เมนูก็จะเน้นพวกหมีเกี๊ยว อ่านต่อ </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanatip tangkam</small>
-              </div>
-            </div>
-          </div>
     </div>
-
-    <div class="card my-4 " style="width: 70rem">
-        <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food4.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">วันนี้ผ่านใกล้เที่ยงเลยลองแวะดู สรุปว่าไม่ได้มีแค่บะหมี่มีอาหารตามสั่งด้วย</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanatip tangkam</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food5.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">อาจจะเพราะปิดปรับปรุงไปส่วนนึง คนก็เลยไปร้านอื่น
-                    เมนูก็จะเน้นพวกหมีเกี๊ยว อ่านต่อ</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanakrit Suksopa</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food6.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">อาหารที่ร้านมีหลากหลายทั้งแบบทานง่าย เช่น บะหมี่เกี๊ยว ข้าวหมูกรอบ</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanakrit Suksopa</small>
-              </div>
-            </div>
-          </div>
-    </div>
-
-    <div class="card my-4 " style="width: 70rem">
-        <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food7.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">ปกติไม่ค่อยสาขานี้นะ เพราะคนเยอะมากกกก แต่วันนี้คนน้อย</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanakrit Suksopa</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food8.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">วันนี้ผ่านใกล้เที่ยงเลยลองแวะดู สรุปว่าไม่ได้มีแค่บะหมี่มีอาหารตามสั่งด้วย</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanakrit Suksopa</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food9.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanatip tangkam</small>
-              </div>
-            </div>
-          </div>
-    </div>
-
-    <div class="card my-4 " style="width: 70rem">
-        <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food10.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Tanatip tangkam</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food10.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Thitiwat</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="{%static 'images/food12.jpg' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">ชื่อรีวิว</h5>
-                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">by Thitiwat</small>
-              </div>
-            </div>
-          </div>
-    </div>
-
-
 </div>
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        {% for review in reviews %}
+         <div class="col-lg-4 col-md-6 mb-3">
+            <div class="card" style="width: 15rem">
+              <img src="{{ review.image.url }}" class="w3-border w3-round" width="223" height="200">
+              <div class="card-body">
+                <h5 class="card-title"> 
+                  <a class="article-title text-info text-dark class="article-title text-info text-dark " href="{% url 'review-detail' review.id %}"><b><h6>{{ review.title }}</h6></b></a>
+                </h5>              
+              </div>
+              <div class="card-footer">
+                <a class="text-muted" href="{% url 'user-posts' review.author.username %}"><b>{{ review.author }}</b></a> &nbsp;&nbsp;<img src="{%static 'images/comment.png' %}" width="20">&nbsp;&nbsp;<b>Comments: {{ review.comments.count }}</b> 
+         
+              </div>
+          </div>
+          
+      </div>
+      {% endfor %}
+    </div>
+  </div> 
+      <!--{% for review in reviews %}
+       
+      <div class="card" style="width: 40rem;">
+        <img src="{{ review.image.url }}" class="w3-border" width="600" height="300">
+        <div class="card-body">
+          <a class="article-title text-info text-dark class="article-title text-info text-dark " href="{% url 'review-detail' review.id %}"><b><h5>{{ review.title }}</h5></b></a>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer">
+          <a class="text-muted" href="{% url 'user-posts' review.author.username %}">{{ review.author }}</a>
+          <!--<small class="text-muted">by Tanakrit Suksopa</small>
+        
+        </div>
+      </div><br>
+      {% endfor %}-->
+    
+  
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+ <!--- <footer class="py-5 bg-dark">
       <div class="container">
         <!--p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p-->
-      </div>
-      <!-- /.container -->
-    </footer>
+      
+      <!-- /.container 
+    </footer> -->
+
 
 <!-- Bootstrap core JavaScript -->
 <script src="static/vendor/jquery/jquery.min.js"></script>
