@@ -1,0 +1,47 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 p-3 mb-2 bg-secondary text-white"><img src="{%static 'images/rest.png' %}" width="30"  height="30">&nbsp;Create Restaurant</legend>
+                <img src="{%static 'images/announ.png' %}" width="30"  height="30"> &nbsp;<b>ชื่อร้านอาหาร</b></h5>
+                {{ form.title|as_crispy_field }}
+                <img src="{%static 'images/iconimage.png' %}" width="30"  height="30"> &nbsp;<b>รูปปกร้านอาหาร</b></h5>
+                {{ form.image|as_crispy_field }}
+                <img src="{%static 'images/fooddish.png' %}" width="30"  height="30"> &nbsp;<b>ตัวอย่างเมนูอาหาร</b></h5>
+                <div><div class="form-row">
+                    <div class="form-group col-md-3 mb-0">
+                      {{ form.pic1|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                      {{ form.pic2|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.pic3|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.pic4|as_crispy_field }}
+                    </div>
+                </div>
+                <img src="{%static 'images/detail.png' %}" width="30"  height="30"> &nbsp;<b>เขียนคำบรรยาย</b></h5>
+                {{ form.content|as_crispy_field }}
+                <img src="{%static 'images/addresss.jpg' %}" width="30"  height="30"> &nbsp;<b>ที่อยู่ร้านอาหาร</b></h5>
+                {{ form.address|as_crispy_field }}
+
+               
+
+                <img src="{%static 'images/googlemapp.jpg' %}" width="50"  height=""><b>Google Map</b></h5>
+                {{ form.googlemap|as_crispy_field }}
+
+                
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

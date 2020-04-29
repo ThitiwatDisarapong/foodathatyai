@@ -1,0 +1,75 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 p-3 mb-2 bg-secondary text-white"><img src="{%static 'images/rest.png' %}" width="30"  height="30">&nbsp;Create Restaurant</legend>
+                <img src="{%static 'images/announ.png' %}" width="30"  height="30"> &nbsp;<b>ชื่อร้านอาหาร</b></h5>
+                {{ form.RestuarantName|as_crispy_field }}
+                <img src="{%static 'images/iconimage.png' %}" width="30"  height="30"> &nbsp;<b>รูปปกร้านอาหาร</b></h5>
+                {{ form.Banner|as_crispy_field }}
+                <img src="{%static 'images/fooddish.png' %}" width="30"  height="30"> &nbsp;<b>ตัวอย่างเมนูอาหาร</b></h5>
+                <div><div class="form-row">
+                    <div class="form-group col-md-3 mb-0">
+                      {{ form.menu1|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                      {{ form.menu2|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.menu3|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.menu4|as_crispy_field }}
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-3 mb-0"><img src="{%static 'images/price2.png' %}" width="30"  height="30"> &nbsp;<b>ราคาต่ำสุด</b>
+                      {{ form.lowprice|as_crispy_field }} 
+                    </div>            
+                    <div class="form-group col-md-3 mb-0"><img src="{%static 'images/price2.png' %}" width="30"  height="30"> &nbsp;<b>ราคาสูงสุด</b>
+                      {{ form.highprice|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0"><img src="{%static 'images/open.jpg' %}" width="30"  height="30"> &nbsp;<b>วันเปิด</b>
+                      {{ form.openday|as_crispy_field }} 
+                    </div>            
+                    <div class="form-group col-md-3 mb-0"><img src="{%static 'images/close.png' %}" width="30"  height="30"> &nbsp;<b>วันปิด</b>
+                      {{ form.closeday|as_crispy_field }}
+                    </div>
+                </div>
+                <img src="{%static 'images/detail.png' %}" width="30"  height="30"> &nbsp;<b>รายละเอียดร้านอาหาร</b></h5>
+                {{ form.content|as_crispy_field }}
+                <img src="{%static 'images/tel.png' %}" width="30"  height="30"> &nbsp;<b>เบอร์ติดต่อ</b></h5>
+                {{ form.tel|as_crispy_field }}
+                <img src="{%static 'images/addresss.jpg' %}" width="30"  height="30"> &nbsp;<b>ที่อยู่ร้านอาหาร</b></h5>
+                {{ form.address|as_crispy_field }}
+
+                <div class="form-row">
+                    <div class="form-group col-md-3 mb-0"> <img src="{%static 'images/parking.png' %}" width="30"  height="30"><b>ที่จอดรถ</b>
+                      {{ form.parking|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0"> <img src="{%static 'images/wifi.jpg' %}" width="30"  height="30"><b>บริการ wifi</b>
+                      {{ form.wifi|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0"> <img src="{%static 'images/panda.jpg' %}" width="30"  height="30"><b>บริการ Food Panda</b>
+                      {{ form.foodpanda|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0"> <img src="{%static 'images/grab.jpg' %}" width="30"  height="30"><b>บริการ Grab</b>
+                      {{ form.grab|as_crispy_field }}
+                    </div>
+                </div>
+
+                <img src="{%static 'images/googlemapp.jpg' %}" width="50"  height=""><b>Google Map</b></h5>
+                {{ form.googlemap|as_crispy_field }}
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

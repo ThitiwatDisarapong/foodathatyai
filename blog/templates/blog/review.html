@@ -1,0 +1,198 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="card my-4 " style="width: 70rem">
+        <h1 class="card-header">
+          {% if user.is_authenticated %}
+            All Review  
+             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'review-create' %}">Create Review</a> 
+          {% else %}  
+            All Review
+          {% endif %}
+        </h1>
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food10.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+              <a href="{% url 'review' %}" target="_blank"><h5 class="card-title">รีวิวร้านติ่มซำ</h5></a>
+                <p class="card-text"> อาหารที่ร้านมีหลากหลายทั้งแบบทานง่าย เช่น บะหมี่เกี๊ยว ข้าวหมูกรอบ </p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanakrit Suksopa</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food2.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ไก่ทอดข้าง ม</h5>
+                <p class="card-text">ร้านนี้เดินผ่านหลายครั้งแล้วแต่ไม่ได้แวะเพราะเห็นแค่ตู้ก๋วยเตี๋ยวกับน้ำแข็งไส  </p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Thitiwat Disarapong</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food3.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ข้าวหมกไก่</h5>
+                <p class="card-text">ปกติไม่ค่อยสาขานี้นะ เพราะคนเยอะมากกกก แต่วันนี้คนน้อย อาจจะเพราะปิดปรับปรุงไปส่วนนึง คนก็เลยไปร้านอื่น
+                    เมนูก็จะเน้นพวกหมีเกี๊ยว อ่านต่อ </p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanatip tangkam</small>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="card my-4 " style="width: 70rem">
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food4.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">วันนี้ผ่านใกล้เที่ยงเลยลองแวะดู สรุปว่าไม่ได้มีแค่บะหมี่มีอาหารตามสั่งด้วย</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanatip tangkam</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food5.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">อาจจะเพราะปิดปรับปรุงไปส่วนนึง คนก็เลยไปร้านอื่น
+                    เมนูก็จะเน้นพวกหมีเกี๊ยว อ่านต่อ</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanakrit Suksopa</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food6.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">อาหารที่ร้านมีหลากหลายทั้งแบบทานง่าย เช่น บะหมี่เกี๊ยว ข้าวหมูกรอบ</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanakrit Suksopa</small>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="card my-4 " style="width: 70rem">
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food7.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">ปกติไม่ค่อยสาขานี้นะ เพราะคนเยอะมากกกก แต่วันนี้คนน้อย</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanakrit Suksopa</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food8.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">วันนี้ผ่านใกล้เที่ยงเลยลองแวะดู สรุปว่าไม่ได้มีแค่บะหมี่มีอาหารตามสั่งด้วย</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanakrit Suksopa</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food9.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanatip tangkam</small>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="card my-4 " style="width: 70rem">
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food10.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Tanatip tangkam</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food10.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Thitiwat</small>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{%static 'images/food12.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">ชื่อรีวิว</h5>
+                <p class="card-text">รายละเอียดเนื้อหารีวิว</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">by Thitiwat</small>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+      <div class="container">
+        <!--p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p-->
+      </div>
+      <!-- /.container -->
+    </footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="static/vendor/jquery/jquery.min.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+  <script>
+      function myMap() {
+      var mapProp= {
+        center:new google.maps.LatLng(6.998037980975092,100.47274771104503),
+        zoom:5,
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_JQ81PG7et8aCKMln678aMsQAFRmnrGI&callback=myMap"></script>
+
+</body>
+
+{% endblock content %}
+

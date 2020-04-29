@@ -1,0 +1,145 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for post in posts %}
+    <article class="media content-section">
+      <!--img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"-->
+        <div class="media-body">
+
+          <!--div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+          </div-->
+
+          <!--h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2-->
+          
+
+          <center>
+            <div class="column">
+              <div class="card ">
+                <img src="{{ post.Banner.url }}" class="" width="690" height="300">
+              </div>
+            </div>
+          </center>
+          
+          
+          
+          <!--center>
+            <div class="img-fluid"><img src="{{ post.menu1.url }}" width="167" height="167">
+            <img src="{{ post.menu2.url }}" width="167" height="167">
+            <img src="{{ post.menu3.url }}" width="167" height="167">
+            <img src="{{ post.menu4.url }}" width="167" height="167"></div>
+          </center-->
+
+            <br/><h2>&nbsp;&nbsp;<a class="article-title text-info text-dark " href="{% url 'post-detail' post.id %}">{{ post.RestuarantName }}</a></h2>
+            <h6><b>&nbsp;&nbsp;&nbsp;&nbsp;<img src="media/icon_pics/location.png" width="16">&nbsp;&nbsp;</b> {{ post.address }}</h6>
+            <h6><b>&nbsp;&nbsp;&nbsp;&nbsp;<img src="media/icon_pics/openday.png" width="20">&nbsp;&nbsp;</b> เปิด:&nbsp;{{ post.openday }}-{{ post.closeday }}</h6>
+            <h6><b>&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/images/tell.png" width="16">&nbsp;&nbsp;</b> {{ post.tel }}</h6>
+            <h6>&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/images/foodtype.png" width="20">&nbsp;&nbsp; <a href="#" class="text-danger">อาหารไทย, อาหารจานเดียว</a> </h6>
+            <h6>&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/images/comment.png" width="20">&nbsp;&nbsp;Comments: {{ post.comments.count }}</h6>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'post-detail' post.id %}" target="_blank" class="btn btn-outline-info"><b>เข้าชมร้าน</b> &rarr;</a>
+          
+        </div>
+
+        
+      </article>
+
+
+    {% endfor %}
+    {% if is_paginated %}
+
+      {% if page_obj.has_previous %}
+        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previos_page_number }}">Previous</a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+
+    {% endif %}
+
+  </div>
+  <div class="col-md-4">
+    <div class="card my-4">
+        <div class="card my-4">
+          <h5 class="card-header"><img src="static/images/search.png" width="30"  height="30">&nbsp;<b>ค้นหาร้านอาหาร</b></h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-5">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> อาหารใต้</label><br>
+                  </li>
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> อาหารเหนือ</label><br>
+                  </li>
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> ก๋วยเตี๋ยว</label><br>
+                  </li>
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> อาหารญี่ปุ่น</label><br>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline"><input type="checkbox" value=""> อาหารจีน</label><br>
+                      </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> บุฟเฟ่ต์</label><br>
+                  </li>
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> Fast Food</label><br>
+                  </li>
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> อาหารไทย</label><br>
+                  </li>
+                  <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> ส้มตำ</label><br>
+                  </li>
+                   <li>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> กาแฟ&ของหวาน</label><br>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <center><a href="" target="_blank" button class="btn btn-info" type="button">ค้นหา</button></a></center>
+            </div>
+          </div>
+    </div>
+
+    <div class="card my-4">
+      <h5 class="card-header"><img src="static/images/announ.png" width="30"  height="30"> &nbsp;<b>ประชาสัมพันธ์</b></h5>
+      <div class="card-body">
+          <img src="static/images/promo1.jpg" style="width:100%;cursor:zoom-in" height="250"
+          onclick="document.getElementById('modal01').style.display='block'">
+          <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+              <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+              <div class="w3-modal-content w3-animate-zoom">
+                <img src="static/images/promo1.jpg" style="width:100%" height="500">
+              </div>
+         </div>
+      </div>
+      <div class="card-body">
+          <img src="static/images/promo2.jpg" style="width:100%;cursor:zoom-in" height="250"
+          onclick="document.getElementById('modal02').style.display='block'">
+          <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+              <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+              <div class="w3-modal-content w3-animate-zoom">
+                <img src="static/images/promo2.jpg" style="width:100%" height="500">
+              </div>
+            </div>
+      </div>
+    
+  </div >
+{% endblock content %}
