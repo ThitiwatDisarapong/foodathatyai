@@ -31,7 +31,7 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'blog-home' %}"><b>Home</b></a>
               <form method="get" action="/search" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="ชื่อร้านอาหาร" aria-label="Search" name="query" id="query">
+                <input class="form-control mr-sm-2" type="search" placeholder="ชื่อร้าน, ประเภท, เมนู, ...." aria-label="Search" name="query" id="query">
                 <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
               </form>
               <!--a class="nav-item nav-link" href="{% url 'blog-about' %}"><b>About</b></a-->
@@ -48,9 +48,9 @@
                 
                 <a href="{% url 'logout' %}" target="_blank" class="btn btn-outline-info" ><font color="white"><b>Logout</b></font></a>
               {% else %}
-                <a class="nav-item nav-link" href="{% url 'review' %}">Review</a>
-                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                <a class="nav-item nav-link" href="{% url 'review' %}"><b>Review</b></a>
+                <a class="nav-item nav-link" href="{% url 'login' %}"><b>Login</b></a>
+                <a class="nav-item nav-link" href="{% url 'register' %}"><b>Registe</b>r</a>
               {% endif %}
             </div>
         </div>
