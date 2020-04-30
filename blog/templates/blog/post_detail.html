@@ -2,85 +2,119 @@
 {% load static %}
 {% block content %}
 
-    <article class="media content-section">
-      <!--img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}"-->
-        <div class="media-body">
-          <div class="article-metadata">
-            <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
-            <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-            {% if object.author == user %}
-              <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+    </div >
+      
+
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+                <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+                {% if object.author == user %}
+                  <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                  </div>
+                  
+                {% endif %}
               </div>
-              
-            {% endif %}
-          </div>
 
-          <h2 class="article-title">{{ object.RestuarantName }}</a></h2>
+              <div class="article-metadata">
+                <h2 class="article-title">{{ object.RestuarantName }}</a></h2>
 
-          <center><img src="{{ post.Banner.url }}"  class="img-fluid" width="300"></center>
-          <br/>
-          <div class="article-metadata"></div>
-          <h5><img src="{%static 'images/menu.png' %}" width="30">&nbsp;Menu & Promotion</h5>
-          
+                <center><img src="{{ post.Banner.url }}"  class="img-fluid" width="900" height=""></center>
+                <br/>
+                <div class="article-metadata"></div>
+                <div class="article-metadata"></div>
+                <h5><img src="{%static 'images/menu.png' %}" width="30">&nbsp;Menu & Promotion</h5>
 
-          <center>
-            <img src="{{ post.menu1.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
-            onclick="document.getElementById('modal01').style.display='block'">
-            <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                <div class="w3-modal-content w3-animate-zoom">
-                  <img src="{{ post.menu1.url }}" style="width:100%" height="500">
+              </div>
+
+              <div class="article-metadata">
+                <center>
+                  <img src="{{ post.menu1.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+                  onclick="document.getElementById('modal01').style.display='block'">
+                  <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                      <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                      <div class="w3-modal-content w3-animate-zoom">
+                        <img src="{{ post.menu1.url }}" style="width:100%" height="500">
+                      </div>
+                 </div>
+                 <img src="{{ post.menu2.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+                  onclick="document.getElementById('modal02').style.display='block'">
+                  <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+                      <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                      <div class="w3-modal-content w3-animate-zoom">
+                        <img src="{{ post.menu2.url }}" style="width:100%" height="500">
+                      </div>
+                 </div>
+                 <img src="{{ post.menu3.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+                 onclick="document.getElementById('modal03').style.display='block'">
+                 <div id="modal03" class="w3-modal" onclick="this.style.display='none'">
+                     <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                     <div class="w3-modal-content w3-animate-zoom">
+                       <img src="{{ post.menu3.url }}" style="width:100%" height="500">
+                     </div>
                 </div>
-           </div>
-           <img src="{{ post.menu2.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
-            onclick="document.getElementById('modal02').style.display='block'">
-            <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
-                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                <div class="w3-modal-content w3-animate-zoom">
-                  <img src="{{ post.menu2.url }}" style="width:100%" height="500">
-                </div>
-           </div>
-            
-            
-           <img src="{{ post.menu3.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
-           onclick="document.getElementById('modal03').style.display='block'">
-           <div id="modal03" class="w3-modal" onclick="this.style.display='none'">
-               <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-               <div class="w3-modal-content w3-animate-zoom">
-                 <img src="{{ post.menu3.url }}" style="width:100%" height="500">
+      
+                <img src="{{ post.menu4.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
+                onclick="document.getElementById('modal04').style.display='block'">
+                <div id="modal04" class="w3-modal" onclick="this.style.display='none'">
+                    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                    <div class="w3-modal-content w3-animate-zoom">
+                      <img src="{{ post.menu4.url }}" style="width:100%" height="500">
+                    </div>
                </div>
-          </div>
-
-          <img src="{{ post.menu4.url }}" class="w3-border w3-round" width="167" cursor:zoom-in" height="167"
-          onclick="document.getElementById('modal04').style.display='block'">
-          <div id="modal04" class="w3-modal" onclick="this.style.display='none'">
-              <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-              <div class="w3-modal-content w3-animate-zoom">
-                <img src="{{ post.menu4.url }}" style="width:100%" height="500">
+                </center>
+                
               </div>
-         </div>
-          </center>
-          <br/>
-          <div class="article-metadata"></div>
-            <p class="article-content">{{ object.content }}</p>
-            <h5 ><img src="{%static 'images/googlemap.png' %}" width="20">&nbsp;Map</h5>
-            <div></div>
-              <iframe src="{{ object.googlemap }}" 
-              width="500" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>	
-                   
-        </div>
-      </article> 
-          
-
-        <div class="col-md-6">
-          <div class="card my-4">
-          <div class="content-section">
-            <center><h3><img src="{%static 'images/info.png' %}" width="40"  height="40">Detail </h3></center>
-            <div class="article-metadata">
               
-            <p class='text-muted'><br/>
+              <div class="article-metadata">
+                <p class="article-content">{{ object.content }}</p>
+                
+              </div>
+              
+              <div class="article-metadata">
+                <img src="{%static 'images/googlemap.png' %}" width="20">&nbsp;Map</h5>
+              </div>
+
+              <div class="article-metadata">
+                <center><iframe src="{{ object.googlemap }}" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe></center>
+              </div>
+
+              <div class="article-metadata">
+                <a class="btn btn-info" href="{% url 'add_comment_to_post' pk=post.pk %}">Add Comment</a><br/><br/>
+                {% for comment in post.comments.all %}
+                   {% if user.is_authenticated or comment.approved_comment %}
+                   <div class="content-section">
+                        <div class="date">
+                            {{ comment.created_date }}
+                            {% if comment.author == user %}
+                              <a class="btn btn-outline-danger" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove">remove</span></a>
+                              <!-- <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a> -->
+                            {% endif %}
+                        </div>
+                        <img class="rounded-circle" src="{{ comment.author.profile.image.url }}" width="50"  height="50">
+                        <strong>{{ comment.author }}</strong>
+                        <p>{{ comment.text|linebreaks }}</p>
+                    </div>
+                    {% endif %}
+                  {% empty %}
+          
+                    <p>No comments here yet :(</p>
+                  {% endfor %}
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Detail</h5>
+              <p class='text-muted'><br/>
 
                 <img src="{%static 'images/parkingg.png' %}" width="27">&nbsp;:&nbsp;<b><font color="black"> ที่จอดรถ</font></b>
                   {% if post.parking == "มี" %}
@@ -146,37 +180,17 @@
                    <font color="black" size="3"><b> • ก๋วยเตี๋ยว</b></h8></font>
                    {% endif %}<br>
                    <!--------------------------------------------------------------------------------->
-
+  
                 <p class="article-content"><img src="{%static 'images/phone.png' %}" width="30">&nbsp;<b>Tel</b>: <br><h7>{{ object.tel }}</h7></a></p> 
                 <p class="article-content"><img src="{%static 'images/price.png' %}" width="30">&nbsp;<b>Price</b>: <br><h7>{{ object.lowprice }} - {{ object.highprice }}</h7></a></p>
                 <img src="{%static 'images/openday.png' %}" width="30">&nbsp;<b>เปิดวัน</b> <br><h7>{{ object.openday }}</h7>&nbsp;-&nbsp;<h7>{{ object.closeday }}</h7></a></p> 
                 <p><img src="{%static 'images/address.png' %}" width="35">&nbsp;<b>Address</b> : <br/>{{ post.address }}</p>
                 
             </p>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
-      
-      <a class="btn btn-info" href="{% url 'add_comment_to_post' pk=post.pk %}">Add Comment</a><br/><br/>
-      {% for comment in post.comments.all %}
-         {% if user.is_authenticated or comment.approved_comment %}
-         <div class="content-section">
-              <div class="date">
-                  {{ comment.created_date }}
-                  {% if comment.author == user %}
-                    <a class="btn btn-outline-danger" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove">remove</span></a>
-                    <!-- <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a> -->
-                  {% endif %}
-              </div>
-              <img class="rounded-circle" src="{{ comment.author.profile.image.url }}" width="50"  height="50">
-              <strong>{{ comment.author }}</strong>
-              <p>{{ comment.text|linebreaks }}</p>
-          </div>
-          {% endif %}
-        {% empty %}
-
-          <p>No comments here yet :(</p>
-        {% endfor %}
         
 {% endblock content %}
